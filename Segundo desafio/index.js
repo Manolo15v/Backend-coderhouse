@@ -3,6 +3,7 @@ const fs = require('fs')
 class Container {
     constructor(filePath) {
         this.filePath = filePath
+        this.lastId = 1
     }
 
     async #readFile() {
@@ -32,22 +33,21 @@ class Container {
 
     async save(data) {
         const products = await this.#readFile();
-        console.log(products);
 
         if (products.length === 0) {
-            await this.#writeFile([{ ...data, id: 1 }]);
-            return 1
+            await this.#writeFile([{ ...data, id: this.lastId }]);
+            return this.lastId
         } else {
-            const id = products.at(-1).id + 1;
+            this.lastId = products[products.length - 1].id + 1
 
-            await this.#writeFile([...products, { ...data, id: id }]);
-            return id
+
+            await this.#writeFile([...products, { ...data, id: this.lastId }]);
+            return this.lastId
         }
     }
 
     async getAll() {
         const products = await this.#readFile();
-        console.log(products);
         return products
     }
 
@@ -76,7 +76,7 @@ class Container {
     }
 }
 
-(async function() {
+(async function () {
     const container1 = new Container("./productos.txt");
 
     const id = await container1.save({ nombre: "Awp", precio: 1000 });
@@ -92,4 +92,8 @@ class Container {
     // container1.deleteAll();
 })()
 
+//posible solucion al id
 
+//this.lastId = products.at(-1).id + 1; sugarsintax a products[products.length - 1].id + 1
+
+//this.lastId = Math.random().toString(36).substring(2,12) id pseudoaleatorio de 10 caracteres

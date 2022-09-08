@@ -32,16 +32,16 @@
     {
         "nombre": "BFG 9000",
         "precio": 560,
-        "id": 8
+        "id": 7
     },
     {
         "nombre": "Master Ball",
         "precio": 390,
-        "id": 9
+        "id": 8
     },
     {
         "nombre": "Gravity Gun",
         "precio": 90,
-        "id": 10
+        "id": 9
     }
 ]
