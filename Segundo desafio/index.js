@@ -34,25 +34,27 @@ class Container {
         const products = await this.#readFile();
         console.log(products);
 
-        if(products.length === 0) {
-            await this.#writeFile([{...data, id: 1}]);
-            console.log("Producto agregado con el id 1");
-        }else{
+        if (products.length === 0) {
+            await this.#writeFile([{ ...data, id: 1 }]);
+            return 1
+        } else {
             const id = products.at(-1).id + 1;
 
-            await this.#writeFile([...products,{...data, id: id}]);
-            console.log(`Producto agregado con el id ${id}`);
+            await this.#writeFile([...products, { ...data, id: id }]);
+            return id
         }
     }
 
     async getAll() {
         const products = await this.#readFile();
+        console.log(products);
         return products
     }
 
     async getById(id) {
         const products = await this.#readFile();
-        return products.find(product => product.id = id);
+        const productFound = products.find(product => product.id = id);
+        return productFound
     }
 
     async deleteById(id) {
@@ -74,14 +76,20 @@ class Container {
     }
 }
 
-const container1 = new Container("./productos.txt");
+(async function() {
+    const container1 = new Container("./productos.txt");
 
-container1.save({ nombre: "Awp", precio: 1000 });
-console.log(container1.getAll());
-console.log(container1.getById(2));
+    const id = await container1.save({ nombre: "Awp", precio: 1000 });
+    const products = await container1.getAll();
+    const product = await container1.getById(5);
 
-// container1.deleteById(5);
+    console.log(`Producto agregado con el id ${id}`);
+    console.log(products);
+    console.log(product);
 
-// container1.deleteAll();
+    // container1.deleteById(5);
+
+    // container1.deleteAll();
+})()
 
 
