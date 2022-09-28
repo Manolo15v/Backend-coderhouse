@@ -6,9 +6,8 @@ const router = Router();
 
 
 router.get('/', (req, res) => {
-    res.send(products.getAll())
-})
-
+    res.render('products.pug', { products: products.getAll() })
+});
 
 router.get('/:id', (req, res) => {
     const { id } = req.params;
@@ -18,16 +17,16 @@ router.get('/:id', (req, res) => {
     }
 
     res.status(302).send(product)
-
-})
+});
 
 router.post('', (req, res) => {
     const product = req.body;
-    const id =  products.save(product);
-    res.status(201).send(`Luchi el id es ${id}`)
-})
+    products.save(product);
+    res.status(308).redirect('/')
+});
 
 router.put('/:id', (req, res) => {
+
     const { id } = req.params;
     const product = req.query;
     const state = products.change(id, product);
@@ -37,7 +36,7 @@ router.put('/:id', (req, res) => {
     }
 
     res.send('Producto cambiado con exito');
-})
+});
 
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
@@ -48,6 +47,6 @@ router.delete('/:id', (req, res) => {
         res.status(404).send(products.error);
     }
     res.send('Producto borrado con exito');
-})
+});
 
 module.exports = router;

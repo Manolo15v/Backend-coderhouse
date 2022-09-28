@@ -1,6 +1,6 @@
 const express = require('express');
 const productos = require('./modules/products')
-const { json, urlencoded, Router, static } = express;
+const { json, urlencoded, static } = express;
 
 // Links del los endpoints para probar
 // GET  - http://localhost:8080/api/productos           Todos los producto

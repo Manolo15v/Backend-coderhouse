@@ -6,25 +6,24 @@ const router = Router();
 
 
 router.get('/', (req, res) => {
-    res.send(products.getAll())
-})
+    res.render('pages/products', { products: products.getAll() })
+});
 
 
 router.get('/:id', (req, res) => {
     const { id } = req.params;
     const product = products.getById(id);
     if (product === false) {
-        res.status(404).send(products.error)
+        res.status(404).send(products.error);
     }
 
-    res.status(302).send(product)
-
-})
+    res.status(302).send(product);
+});
 
 router.post('', (req, res) => {
     const product = req.body;
-    const id =  products.save(product);
-    res.status(201).send(`Luchi el id es ${id}`)
+    products.save(product);
+    res.status(308).redirect('/')
 })
 
 router.put('/:id', (req, res) => {

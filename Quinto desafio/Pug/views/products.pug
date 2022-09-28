@@ -1,0 +1,36 @@
+include includes/head.pug
+    
+body
+    include includes/header.pug
+
+    section(class="m-5")
+        if products.length !== 0
+            table(class="table")
+                thead
+                    tr
+                        th(scope="col") Id
+                        th(scope="col") Nombre
+                        th(scope="col") Precio
+                        th(scope="col") Imagen
+            
+                tbody
+                    each product in products
+                        tr
+                            th(scope="row")= product.id
+                            
+                            td= product.nombre
+                            
+                            td= product.precio
+                            
+                            td
+                                img(src=product.urlImagen class="w-25 h-auto")
+        else
+            div(class="alert alert-danger" role="alert") 
+                p No hay productos
+                    
+              
+    script(
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"
+    )
