@@ -1,6 +1,6 @@
 const express = require('express');
 const productos = require('./modules/products')
-const { json, urlencoded, static } = express;
+const { json, urlencoded } = express;
 
 const app = express();
 
