@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
     }
 
     res.status(302).send(product)
-
 })
 
 router.post('', (req, res) => {
