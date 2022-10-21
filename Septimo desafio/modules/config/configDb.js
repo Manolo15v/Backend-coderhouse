@@ -1,8 +1,12 @@
+import {resolve} from 'path'
+
+const sqlitePath = resolve("./db/mydb.sqlite");
+
 export default {
     sqlite3: {
         client: 'sqlite3',
         connection: {
-            filename: "db/mydb.sqlite"
+            filename: sqlitePath
         },
         useNullAsDefault: true
     },

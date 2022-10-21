@@ -1,5 +1,5 @@
 import knex from "knex";
-import config from "../modules/config/configDb.js";
+import config from "./modules/config/configDb.js";
 
 const sqliteClient = knex(config.sqlite3);
 
