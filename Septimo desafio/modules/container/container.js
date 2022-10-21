@@ -18,8 +18,6 @@ export default class Container {
         } catch (error) {
             console.log(error);
 
-        } finally {
-            this.disconnect();
         }
     }
 
@@ -31,8 +29,6 @@ export default class Container {
 
             console.log(error);
 
-        } finally {
-            this.disconnect();
         }
     }
 }

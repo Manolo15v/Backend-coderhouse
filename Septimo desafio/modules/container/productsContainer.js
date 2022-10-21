@@ -13,24 +13,7 @@ export default class ProductsContainer extends Container{
         } catch (error) {
 
             console.log(error);
-
-        } finally {
-            this.disconnect();
         }
-
-        // const exists = this.productExists(id)
-
-        // if (exists) {
-        //     let { nombre, precio } = data;
-        //     const productId = parseInt(id)
-        //     precio = parseInt(precio);
-
-        //     const indexProduct = this.products.indexOf(this.products.find(product => product.id === productId));
-
-        //     this.products[indexProduct] = { nombre, precio, productId };
-        // }
-
-        // return exists
     }
 
     async getById(id) {
@@ -41,8 +24,6 @@ export default class ProductsContainer extends Container{
 
             console.log(error);
 
-        } finally {
-            this.disconnect();
         }
     }
 
@@ -54,8 +35,6 @@ export default class ProductsContainer extends Container{
 
             console.log(error);
 
-        } finally {
-            this.disconnect();
         }
     }
 
@@ -66,8 +45,6 @@ export default class ProductsContainer extends Container{
 
             console.log(error);
 
-        } finally {
-            this.disconnect();
         }
 
         console.log("Productos borrados");

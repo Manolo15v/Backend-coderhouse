@@ -5,10 +5,21 @@ const button = document.getElementById('submit');
 
 button.addEventListener('click', e => {
     e.preventDefault();
+
+
+    // ---- Para tener la fecha en formato YYYY-MM-DD HH:MI:SS
+    const date = new Date();
+    const padL = (str, len = 2, chr = `0`) => `${str}`.padStart(len, chr);
+
+    let messageDate = `${date.getFullYear()}/${  padL(date.getMonth() + 1)}/${padL(date.getDate())} ${padL(date.getHours())}:${padL(date.getMinutes())}:${padL(date.getSeconds())}`; 
+
+    //
+
     if (inputs[0].value) {
         const newMessage = {
             email: inputs[0].value,
-            message: inputs[1].value
+            mensaje: inputs[1].value,
+            fecha: messageDate
         }
 
         socket.emit('client-message', newMessage)

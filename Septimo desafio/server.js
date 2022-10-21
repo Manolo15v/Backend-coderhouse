@@ -27,7 +27,7 @@ app.use('/', productsRoute)
 app.use('/mensajes', messagesRoute)
 
 const products = new ProductsContainer(config.mariaDb, 'products')
-const messages = new MessagesContainer(config.mariaDb, 'messages')
+const messages = new MessagesContainer(config.sqlite3, 'messages')
 
 const server = httpServer.listen(PORT, () => {
     console.log(`listen in http://localhost:${server.address().port}`);
@@ -38,18 +38,14 @@ io.on('connection', async socket => {
     socket.emit('products', await products.getAll());
     socket.emit('messages', await messages.getAll());
 
-    socket.on('client-product', (data) => {
-        products.save(data);
-        io.sockets.emit('products', async () => {
-            await products.getAll()
-        });
+    socket.on('client-product', async (data) => {
+        await products.save(data);
+        io.sockets.emit('products', await products.getAll());
     });
 
-    socket.on('client-message', (data) => {
-        messages.save(data);
-        io.sockets.emit('messages', async () => {
-            await messages.getAll();
-        });
+    socket.on('client-message', async (data) => {
+        await messages.save(data);
+        io.sockets.emit('messages', await messages.getAll());
     });
 });
 
