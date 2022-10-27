@@ -1,0 +1,64 @@
+use ecommerce
+
+// Mensajes
+db.mensajes.insertMany([
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 1", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 2", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 3", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 4", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 5", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 6", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 7", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 8", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"mensaje 9", "date": new Date("2022/10/27 17:45:12")},
+    {"email":"Manolo15V@gmail.com", "message":"me debes un vinito", "date": new Date("2022/10/27 17:45:12")}
+])
+
+db.mensajes.find()
+
+db.productos.estimatedDocumentCount()
+
+
+// Productos
+db.productos.insertMany([
+    {"nombre": "Time", "precio": 120, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Layla", "precio": 580, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Don't Cry", "precio": 900, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "New Kid in Town", "precio": 1280, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Welcome To The Jungle", "precio": 1700, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Knockin' On Heaven's Door", "precio": 2300, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Comfortably Numb", "precio": 2860, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Wish You Were Here", "precio": 3350, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Fluorescent Adolescent", "precio": 4320, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"},
+    {"nombre": "Still Loving You", "precio": 4990, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"}
+])
+
+db.productos.find()
+
+db.productos.estimatedDocumentCount()
+
+db.productos.insertOne({"nombre": "Hallowed Be Thy Name", "precio": 3740, "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png"})
+
+db.productos.findOne({"nombre": "Still Loving You"})
+
+db.productos.find({"precio": {$lt: 1000}})
+
+db.productos.find({$and:[{"precio": {$gte: 1000}},{"precio": {$lte: 3000}}]})
+
+db.productos.find({"precio": {$gt: 3000}})
+
+db.productos.findOne({"precio": 900}, {"_id":0, "nombre" : 1})
+
+db.productos.updateMany({}, {$set: {"stock": 100}})
+
+db.productos.updateMany({"precio": {$gt: 4000}}, {$set: {"stock": 0}})
+
+db.productos.deleteMany({"precio": {$lt: 1000}})
+
+db.createUser({
+    user: "pepe",
+    pwd: "asd456",
+    roles: [
+       { role: "read", db: "ecommerce" }
+    ]
+})

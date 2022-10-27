@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "635aed622b21d97d218496bf"
+  },
+  "nombre": "New Kid in Town",
+  "precio": 1280,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c0"
+  },
+  "nombre": "Welcome To The Jungle",
+  "precio": 1700,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c1"
+  },
+  "nombre": "Knockin' On Heaven's Door",
+  "precio": 2300,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c2"
+  },
+  "nombre": "Comfortably Numb",
+  "precio": 2860,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c3"
+  },
+  "nombre": "Wish You Were Here",
+  "precio": 3350,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c4"
+  },
+  "nombre": "Fluorescent Adolescent",
+  "precio": 4320,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "635aed622b21d97d218496c5"
+  },
+  "nombre": "Still Loving You",
+  "precio": 4990,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "635aed6c2b21d97d218496c6"
+  },
+  "nombre": "Hallowed Be Thy Name",
+  "precio": 3740,
+  "urlImagen": "https://cdn2.iconfinder.com/data/icons/icontober/64/Inkcontober_Screech_Psyduck-512.png",
+  "stock": 100
+}]
