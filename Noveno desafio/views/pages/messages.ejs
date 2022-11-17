@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+        <h1>Compresión: <span id="compression-info"></span>%</h1>
+
+
+        <section class="m-5">
+            <form action="/productos" method="post">
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Email</label>
+                    <input type="email" id="username" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">Nombre</label>
+                    <input type="text" id="firstname" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Apellido</label>
+                    <input type="text" id="lastname" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="age" class="form-label">Edad</label>
+                    <input type="number" id="age" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="alias" class="form-label">Alias</label>
+                    <input type="text" id="alias" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="avatar" class="form-label">Foto</label>
+                    <input type="url" id="avatar" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="messageInput" class="form-label">Mensaje</label>
+                    <input disabled id="messageInput" type="text" class="form-control">
+                </div>
+
+                <button disabled id="submit" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+
+        <section class="m-5 h-50">
+            <ul class="h-100 overflow-auto list-group" id="messagesContainer">
+
+            </ul>
+        </section>
+
+        <script src="js/messages.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>
